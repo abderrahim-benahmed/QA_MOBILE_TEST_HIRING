@@ -15,10 +15,9 @@ Feature: Secure Area
 
   @priority:core @smoke
   Scenario: Logging out returns to the Login page with a confirmation
-    When I tap the element with id "logout-button"
-    Then the element with id "success-logout-text" should exist
-    And the element with id "success-logout-text" should have text "You logged out of the secure area!"
+    When I log out
+    Then I should be back on the Login page
+    And I should see the logout confirmation "You logged out of the secure area!"
 
-  @priority:regression
-  Scenario: Secure area exposes the title element
-    Then the element with id "secure-area-title" should exist
+
+

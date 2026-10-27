@@ -1,9 +1,10 @@
 import { When, Then } from '@cucumber/cucumber'
 import LoginPage from '../pageObjects/LoginPage.js'
 import CommonPage from '../pageObjects/CommonPage.js'
+import { validUser } from '../config/credentials.js'
 
 When('I log in as the valid user', async () => {
-  await LoginPage.login('tomsmith', 'SuperSecretPassword!')
+  await LoginPage.login(validUser.userName, validUser.password)
 })
 
 When('I log in with username {string} and password {string}', async (username, password) => {
@@ -33,3 +34,4 @@ Then('I should see the login instructions', async () => {
 Then('I should see the logout confirmation {string}', async expectedText => {
   await LoginPage.verifyLogoutConfirmation(expectedText)
 })
+

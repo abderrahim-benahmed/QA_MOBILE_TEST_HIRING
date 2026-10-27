@@ -3,7 +3,6 @@
  * Screen under test: src/screens/SecureAreaScreen.tsx
  */
 import CommonPage from './CommonPage.js'
-import { pause } from '../utils/platformUtils.js'
 
 class SecureAreaPage {
   // ================================
@@ -26,7 +25,7 @@ class SecureAreaPage {
   // ================================
   // Valid login navigates here after a short async delay.
   async waitToLoad() {
-    await pause(3000)
+    await CommonPage.waitVisible(by.id('secure-area-heading'))
   }
 
   async logout() {
@@ -54,3 +53,4 @@ class SecureAreaPage {
 }
 
 export default new SecureAreaPage()
+

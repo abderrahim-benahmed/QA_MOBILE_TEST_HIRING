@@ -37,7 +37,7 @@ class CommonPage {
   async verifySuccessBanner(expectedText) {
     await this.waitVisible(by.id('success-banner'))
     if (expectedText) {
-      await expect(element(by.text(expectedText)).atIndex(0)).toExist()
+      await this.verifyText(by.id('success-text'), expectedText)
     }
   }
 
@@ -59,3 +59,4 @@ class CommonPage {
 }
 
 export default new CommonPage()
+

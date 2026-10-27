@@ -20,8 +20,6 @@ BeforeAll({ timeout: SCENARIO_TIMEOUT }, async () => {
 Before({ timeout: SCENARIO_TIMEOUT }, async ({ pickle }) => {
   // Fresh app instance per scenario => no shared state between scenarios.
   await device.launchApp({ newInstance: true })
-  // Speeds the suite up by not waiting on the app to be idle between actions.
-  await device.disableSynchronization()
 
   await detox.onTestStart({
     title: pickle.uri,
@@ -47,3 +45,4 @@ After(async scenario => {
 AfterAll(async () => {
   await detox.cleanup()
 })
+
